@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #4f46e5;
+  --gradient-start: #6366f1;
+  --gradient-end: #8b5cf6;
+}
+
+:root[data-theme="light"] {
+  --text-color: #1f2937;
+  --background-color: #f9fafb;
+  --card-background: #ffffff;
+  --accent-color: #f3f4f6;
+  --hover-color: rgba(99, 102, 241, 0.1);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+  --border-color: #e5e7eb;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+:root[data-theme="dark"] {
+  --text-color: #f3f4f6;
+  --background-color: #111827;
+  --card-background: #1f2937;
+  --accent-color: #374151;
+  --hover-color: rgba(99, 102, 241, 0.15);
+  --navbar-bg: rgba(31, 41, 55, 0.9);
+  --border-color: #374151;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  color: var(--text-color);
+  background: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+.section-title {
+  @apply text-4xl font-bold mb-12 text-center relative;
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  &::after {
+    content: '';
+    @apply absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 rounded-full;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  }
+}
+
+.card {
+  background: var(--card-background);
+  @apply rounded-2xl transition-all duration-300;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-primary\/10 {
+  background-color: var(--hover-color);
+}
+
+/* Animation pour le loader */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation de fade-in pour les sections */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Style pour la navbar */
+.navbar {
+  background: var(--navbar-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+  @apply fixed top-0 left-0 right-0 z-50 transition-all duration-300;
+}
+
+/* Styles pour les boutons */
+.btn {
+  @apply px-6 py-2 rounded-lg font-medium transition-all duration-300;
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  color: white;
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  }
+}
+
+/* Style pour les liens */
+a {
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+  &:hover {
+    color: var(--secondary-color);
+  }
+} 
