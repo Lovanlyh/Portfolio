@@ -12,62 +12,51 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
+  const [hasCheckedConnection, setHasCheckedConnection] = useState(false)
 
   useEffect(() => {
-    // Fonction pour vérifier la qualité de la connexion
     const checkConnection = () => {
-      if (!window.navigator) {
+      // Si le navigateur ne supporte pas l'API Connection
+      if (!('connection' in navigator)) {
         setIsLoading(false)
+        setHasCheckedConnection(true)
         return
       }
 
-      // Vérifier si le contenu est déjà en cache
-      if (window.performance) {
-        const navigation = window.performance.getEntriesByType('navigation')[0]
-        if (navigation && navigation.transferSize === 0) {
-          setIsLoading(false)
-          return
-        }
-      }
+      // @ts-ignore
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
 
-      // Vérifier la connexion
-      if ('connection' in navigator) {
-        // @ts-ignore
-        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
-        if (connection) {
-          const isSlowConnection = connection.downlink < 1.5 || // Moins de 1.5 Mbps
-                                 connection.rtt > 500 || // Latence > 500ms
-                                 connection.effectiveType === 'slow-2g' ||
-                                 connection.effectiveType === '2g'
-          setIsLoading(isSlowConnection)
-        } else {
-          setIsLoading(false)
-        }
+      if (connection) {
+        const isSlowConnection = 
+          connection.effectiveType === 'slow-2g' ||
+          connection.effectiveType === '2g' ||
+          connection.downlink < 0.5 || // Moins de 0.5 Mbps
+          connection.rtt > 650 // Latence > 650ms
+
+        setIsLoading(isSlowConnection)
       } else {
         setIsLoading(false)
       }
+      
+      setHasCheckedConnection(true)
     }
 
-    // Vérifier la connexion au chargement
+    // Vérifier la connexion immédiatement
     checkConnection()
 
-    // Écouter les changements de connexion
-    if ('connection' in navigator) {
-      // @ts-ignore
-      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
-      if (connection) {
-        connection.addEventListener('change', checkConnection)
-        return () => connection.removeEventListener('change', checkConnection)
-      }
-    }
-
-    // Fallback : désactiver le loader après 5 secondes si aucune détection n'a fonctionné
-    const fallbackTimer = setTimeout(() => {
+    // Désactiver le loader après 3 secondes maximum
+    const timeout = setTimeout(() => {
       setIsLoading(false)
-    }, 5000)
+      setHasCheckedConnection(true)
+    }, 3000)
 
-    return () => clearTimeout(fallbackTimer)
+    return () => clearTimeout(timeout)
   }, [])
+
+  // Ne rien afficher tant que nous n'avons pas vérifié la connexion
+  if (!hasCheckedConnection) {
+    return null
+  }
 
   return (
     <AnimatePresence>

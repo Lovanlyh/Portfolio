@@ -14,7 +14,7 @@ export default function Projects() {
         { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" }
       ],
       github: "https://github.com/lovanlyh/portfolio",
-      demo: "https://votre-portfolio.fr",
+      demo: "https://portfolio-hugo-prostpineau.vercel.app/",
       docPath: "/projets/portfolio"
     },
     {
@@ -150,9 +150,9 @@ export default function Projects() {
     <div className="max-w-6xl mx-auto w-full px-4 sm:px-6">
       <h2 className="section-title">Mes Projets</h2>
 
-      <div className="mb-12">
-        <h3 className="text-2xl font-semibold mb-6 text-primary">Projets Scolaires</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="mb-24">
+        <h3 className="text-2xl font-semibold mb-8 text-primary">Projets Scolaires</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {schoolProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
@@ -160,8 +160,8 @@ export default function Projects() {
       </div>
 
       <div>
-        <h3 className="text-2xl font-semibold mb-6 text-primary">Projets Professionnels</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h3 className="text-2xl font-semibold mb-8 text-primary">Projets Professionnels</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {professionalProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

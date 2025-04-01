@@ -10,11 +10,8 @@ export default function About() {
           <span className="font-semibold text-primary"> BTS SIO option SLAM</span> à l'EFREI PARIS.
         </p>
         <p className="text-base sm:text-lg mb-4 leading-relaxed">
-          Passionné par le développement d'applications et la création de solutions logicielles, 
-          je m'efforce d'apprendre et d'appliquer les meilleures pratiques dans mes projets.
-        </p>
-        <p className="text-base sm:text-lg leading-relaxed">
-          Mon objectif est de devenir un développeur compétent et de contribuer à des projets innovants 
+        Étant présent en entreprise, je m'efforce d'apprendre le maximum de compétences pour pouvoir être 
+        utile à cette dernière. Mon objectif est de devenir un développeur compétent et de contribuer à des projets innovants 
           qui améliorent la vie des utilisateurs. Je suis particulièrement intéressé par les technologies 
           web modernes et l'expérience utilisateur.
         </p>
