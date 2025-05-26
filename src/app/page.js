@@ -9,6 +9,7 @@ import Veille from '../components/sections/Veille'
 import Loader from '../components/Loader'
 import Footer from '../components/Footer'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import TableauSynthese from '../components/sections/TableauSynthese'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -95,23 +96,27 @@ export default function Home() {
             </div>
           </motion.section>
 
-          <section id="about" className="min-h-screen flex items-center py-16 px-4 sm:px-8">
+          <section id="about" className="section-container">
             <About />
           </section>
 
-          <section id="skills" className="min-h-screen flex items-center py-16 px-4 sm:px-8">
+          <section id="skills" className="section-container">
             <Skills />
           </section>
 
-          <section id="projects" className="min-h-screen flex items-center py-16 px-4 sm:px-8">
+          <section id="projects" className="section-container">
             <Projects />
           </section>
 
-          <section id="bts-sio" className="min-h-screen flex items-center py-16 px-4 sm:px-8">
+          <section id="bts-sio" className="section-container">
             <BtsSio />
           </section>
 
-          <section id="veille" className="min-h-screen flex items-center py-16 px-4 sm:px-8">
+          <section id="tableau-synthese" className="section-container">
+            <TableauSynthese />
+          </section>
+
+          <section id="veille" className="section-container">
             <Veille />
           </section>
           

@@ -126,4 +126,17 @@ a {
   &:hover {
     color: var(--secondary-color);
   }
+}
+
+.section-container {
+  display: flex;
+  align-items: center;
+  padding: 6rem 1rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding: 6rem 2rem;
+  }
 } 

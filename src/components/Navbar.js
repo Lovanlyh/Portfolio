@@ -3,18 +3,21 @@ import { useState, useEffect } from 'react'
 import ThemeToggle from './ThemeToggle'
 import { Menu, X } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navLinks = [
-    { href: '#about', label: 'À propos' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#projects', label: 'Projets' },
-    { href: '#bts-sio', label: 'BTS SIO' },
-    { href: '#veille', label: 'Veille' },
+    { href: '/#about', label: 'À propos' },
+    { href: '/#skills', label: 'Skills' },
+    { href: '/#projects', label: 'Projets' },
+    { href: '/#bts-sio', label: 'BTS SIO' },
+    { href: '/#veille', label: 'Veille' },
   ]
 
   useEffect(() => {
@@ -23,22 +26,24 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 50)
 
       // Détection de la section active
-      const sections = navLinks.map(link => link.href.substring(1))
-      const current = sections.find(section => {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          return rect.top <= 150 && rect.bottom >= 150
-        }
-        return false
-      })
-      
-      if (current) setActiveSection(current)
+      if (pathname === '/') {
+        const sections = navLinks.map(link => link.href.substring(2))
+        const current = sections.find(section => {
+          const element = document.getElementById(section)
+          if (element) {
+            const rect = element.getBoundingClientRect()
+            return rect.top <= 150 && rect.bottom >= 150
+          }
+          return false
+        })
+        
+        if (current) setActiveSection(current)
+      }
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [pathname])
 
   const scrollToSection = (e, href) => {
     e.preventDefault()
@@ -61,14 +66,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <a href="#" 
-               onClick={(e) => scrollToSection(e, '#')}
-               className="text-primary font-bold text-xl hover:opacity-80 transition-opacity">
+            <Link href="/" className="text-primary font-bold text-xl hover:opacity-80 transition-opacity">
               Portfolio
-            </a>
+            </Link>
             <div className="flex items-center ml-4 space-x-3">
               <a
-                href="https://github.com/votre-username"
+                href="https://github.com/lovanlyh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:text-primary-dark transition-colors"
@@ -76,7 +79,7 @@ export default function Navbar() {
                 <FaGithub className="h-6 w-6" />
               </a>
               <a
-                href="https://linkedin.com/in/votre-profil"
+                href="https://www.linkedin.com/in/hugo-prostpineau/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:text-primary-dark transition-colors"
@@ -102,20 +105,19 @@ export default function Navbar() {
           </div>
 
           {/* Menu pour desktop */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex md:items-center md:space-x-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  activeSection === link.href.substring(1)
+                  activeSection === link.href.substring(2)
                     ? 'text-primary bg-primary/10'
                     : 'hover:text-primary hover:bg-primary/5'
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="flex items-center ml-4">
               <ThemeToggle />
@@ -128,18 +130,17 @@ export default function Navbar() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-card-background border-t border-accent-color/10">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => scrollToSection(e, link.href)}
                   className={`block px-3 py-2 rounded-lg text-base font-medium transition-all ${
-                    activeSection === link.href.substring(1)
+                    activeSection === link.href.substring(2)
                       ? 'text-primary bg-primary/10'
                       : 'hover:text-primary hover:bg-primary/5'
                   }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

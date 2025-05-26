@@ -5,13 +5,13 @@ export default function Projects() {
   const schoolProjects = [
     {
       title: "Portfolio",
-      shortDescription: "Portfolio personnel présentant mes compétences et projets, développé avec Next.js et Tailwind CSS.",
-      duration: "Mars 2024",
+      shortDescription: "Portfolio professionnel développé dans le cadre de l'épreuve E5 du BTS SIO. Présentation structurée des compétences techniques et professionnelles, des projets réalisés et des expériences en entreprise. Démonstration des compétences en développement web moderne et en communication professionnelle.",
+      duration: "Janvier 2025 <-> Mai 2025",
       role: "Développeur Full-Stack",
       technologies: [
         { name: "Next.js", icon: "devicon-nextjs-original" },
-        { name: "React", icon: "devicon-react-original colored" },
-        { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" }
+        { name: "React", icon: "devicon-react-original" },
+        { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" }
       ],
       github: "https://github.com/lovanlyh/portfolio",
       demo: "https://portfolio-hugo-prostpineau.vercel.app/",
@@ -19,26 +19,30 @@ export default function Projects() {
     },
     {
       title: "Projet fil rouge",
-      shortDescription: "Application de gestion complète couvrant l'analyse, la conception et le développement.",
-      duration: "Projet scolaire - 1 semestre",
+      shortDescription: "Projet de développement d'application de gestion dans le cadre du BTS SIO, démontrant les compétences en analyse, conception et développement. Réalisation d'une application web (Next.js) et d'une application de bureau (Java), mettant en œuvre les compétences techniques et méthodologiques acquises.",
+      duration: "Décembre 2024 <-> Mai 2025",
       role: "Développeur Full Stack",
       technologies: [
-        { name: "PHP", icon: "devicon-php-plain colored" },
-        { name: "MySQL", icon: "devicon-mysql-plain colored" },
-        { name: "JavaScript", icon: "devicon-javascript-plain colored" },
-        { name: "Bootstrap", icon: "devicon-bootstrap-plain colored" },
-        { name: "Git", icon: "devicon-git-plain colored" }
+        { name: "PHP", icon: "devicon-php-plain" },
+        { name: "MySQL", icon: "devicon-mysql-plain" },
+        { name: "JavaScript", icon: "devicon-javascript-plain" },
+        { name: "Bootstrap", icon: "devicon-bootstrap-plain" },
+        { name: "Git", icon: "devicon-git-plain" }
+      ],
+      github: [
+        { url: "https://github.com/Lovanlyh/Client_leger_E6", label: "Client Léger" },
+        { url: "https://github.com/Lovanlyh/Client_lourd_E6", label: "Client Lourd" }
       ],
       docPath: "/projets/fil-rouge"
     },
     {
       title: "Clone BDD Twitch",
-      shortDescription: "Modélisation complète d'une base de données inspirée de Twitch avec MCD, MLD, MPD.",
-      duration: "Projet scolaire - 5 semaines",
+      shortDescription: "Projet de modélisation de base de données réalisé dans le cadre du BTS SIO, démontrant les compétences en conception et administration de bases de données. Application des méthodes Merise (MCD, MLD, MPD) et mise en œuvre des compétences en SQL et en gestion de données.",
+      duration: "Novembre 2024 <-> Décembre 2024",
       role: "Concepteur de Base de Données",
       technologies: [
-        { name: "SQL", icon: "devicon-mysql-plain colored" },
-        { name: "MySQL", icon: "devicon-mysql-plain colored" },
+        { name: "SQL", icon: "devicon-mysql-plain" },
+        { name: "MySQL", icon: "devicon-mysql-plain" },
         { name: "UML", icon: "devicon-markdown-original" },
         { name: "Merise", icon: "devicon-markdown-original" }
       ],
@@ -46,15 +50,17 @@ export default function Projects() {
     },
     {
       title: "Météo APP",
-      shortDescription: "Application météo avec géolocalisation et prévisions utilisant l'API OpenWeatherMap.",
-      duration: "Projet personnel - 3 semaines",
+      shortDescription: "Application météo développée dans le cadre du BTS SIO, démontrant les compétences en développement web et en intégration d'API. Mise en œuvre des technologies modernes (Next.js, React) et des bonnes pratiques de développement (responsive design, gestion d'état, appel d'API).",
+      duration: "Septembre 2024 <-> Novembre 2024",
       role: "Développeur Frontend",
       technologies: [
-        { name: "React", icon: "devicon-react-original colored" },
+        { name: "React", icon: "devicon-react-original" },
         { name: "Next.js", icon: "devicon-nextjs-original" },
-        { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
-        { name: "API REST", icon: "devicon-nodejs-plain colored" }
+        { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
+        { name: "API REST", icon: "devicon-nodejs-plain" }
       ],
+      github: "https://github.com/Lovanlyh/La-Meteo-de-Hugo",
+      demo: "https://la-meteo-de-hugo.vercel.app/",
       docPath: "/projets/meteo-app"
     },
   ]
@@ -62,27 +68,27 @@ export default function Projects() {
   const professionalProjects = [
     {
       title: "Configuration et déploiement de téléphones via Intune",
-      shortDescription: "Solution de gestion de flotte mobile avec Microsoft Intune, incluant la sécurité et le déploiement automatisé.",
-      duration: "Stage - 6 semaines",
+      shortDescription: "Projet professionnel réalisé chez BIR dans le cadre du BTS SIO, démontrant les compétences en administration système et en sécurité informatique. Mise en place d'une solution de gestion de flotte mobile avec Microsoft Intune, incluant la configuration des politiques de sécurité et le déploiement automatisé.",
+      duration: "Février 2024 <-> Juillet 2025",
       role: "Administrateur Systèmes",
       technologies: [
-        { name: "Microsoft Intune", icon: "devicon-azure-plain colored" },
-        { name: "Azure AD", icon: "devicon-azure-plain colored" },
-        { name: "MDM", icon: "devicon-azure-plain colored" },
-        { name: "PowerShell", icon: "devicon-powershell-plain colored" }
+        { name: "Microsoft Intune", icon: "devicon-azure-plain" },
+        { name: "Azure AD", icon: "devicon-azure-plain" },
+        { name: "MDM", icon: "devicon-azure-plain" },
+        { name: "PowerShell", icon: "devicon-powershell-plain" }
       ],
       docPath: "/projets/intune-deployment"
     },
     {
       title: "Gestion de BDD grâce à Talend",
-      shortDescription: "Système ETL avec Talend pour l'automatisation de l'intégration et la transformation de données.",
-      duration: "Projet scolaire - 4 semaines",
+      shortDescription: "Projet ETL réalisé dans le cadre du BTS SIO, démontrant les compétences en intégration et transformation de données. Utilisation de Talend pour l'automatisation des processus ETL et la synchronisation des données entre différentes sources, mettant en œuvre les compétences en développement et en gestion de données.",
+      duration: "Décembre 2024 <-> Avril 2025",
       role: "Développeur ETL",
       technologies: [
-        { name: "Talend Open Studio", icon: "devicon-java-plain colored" },
-        { name: "SQL", icon: "devicon-mysql-plain colored" },
-        { name: "MySQL", icon: "devicon-mysql-plain colored" },
-        { name: "ETL", icon: "devicon-apache-plain colored" }
+        { name: "Talend Open Studio", icon: "devicon-java-plain" },
+        { name: "SQL", icon: "devicon-mysql-plain" },
+        { name: "MySQL", icon: "devicon-mysql-plain" },
+        { name: "ETL", icon: "devicon-apache-plain" }
       ],
       docPath: "/projets/talend-etl"
     },
@@ -112,8 +118,21 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="flex gap-3 mt-4 pt-4 border-t border-accent-color/10">
-        {project.github && (
+      <div className="flex flex-wrap gap-2 mt-auto">
+        {Array.isArray(project.github) ? (
+          project.github.map((repo, idx) => (
+            <a
+              key={idx}
+              href={repo.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm px-3 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors"
+            >
+              <FaGithub className="w-4 h-4" />
+              <span>{repo.label}</span>
+            </a>
+          ))
+        ) : project.github && (
           <a
             href={project.github}
             target="_blank"
